@@ -1,0 +1,53 @@
+<html>
+<head>
+    <style>
+        
+
+        #my_box_realtime {
+            background-color: red;
+        }
+        #my_box_realtime {
+            position: absolute;
+        }
+        #my_box_realtime {
+            right: 70px;
+        }
+        #my_box_realtime {
+            bottom: 70px;
+        }
+        #my_box_realtime {
+            min-width: 100px;
+        }
+        #my_box_realtime {
+            min-height: 100px;
+        }
+        #my_box_realtime {
+            transition: all 0.5s linear;
+        }
+
+ </style>
+</head>
+<body>
+    <div id="my_box_realtime"></div>
+    <script type="text/javascript">
+        const box = document.getElementById('my_box_realtime');
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+
+        let xPos = 70; 
+        let yPos = 70; 
+
+        const moveBox = () => {
+            if (xPos < screenWidth - 100 && yPos < screenHeight - 100) {
+                xPos += 1;
+                yPos += 1;
+                box.style.right = `${screenWidth - xPos}px`;
+                box.style.bottom = `${screenHeight - yPos}px`;
+                setTimeout(moveBox, 500);
+            }
+        };
+
+        moveBox();
+    </script>
+</body>
+</html>
